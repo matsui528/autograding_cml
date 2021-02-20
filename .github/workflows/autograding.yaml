@@ -5,17 +5,22 @@ on: [push]
 jobs:
   run:
     runs-on: [ubuntu-latest]
-    container: docker://dvcorg/cml-py3:latest
+    # container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
-      # - name: Set up Python
-      #   uses: actions/setup-python@v2
-      #   with:
-      #     python-version: '3.7'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
       - name: autograde_task
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          npm i -g @dvcorg/cml
           python --version
           python eval.py >> report.md
           cml-send-comment report.md
