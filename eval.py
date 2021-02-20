@@ -10,7 +10,11 @@ if __name__ == '__main__':
     print(run("gcc main.c"))
 
     print("## Run `./main.c 3 5`")
-    result = run("./a.out 3 5")
+    try:
+        result = run("./a.out 3 5")
+    except:
+        print(f"Error: {result}")
+
     result = result.rstrip()  # delete the final new line
     print(result)
     
