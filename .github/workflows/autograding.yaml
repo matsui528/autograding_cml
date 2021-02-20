@@ -18,5 +18,5 @@ jobs:
         run: |
           python --version
           python eval.py >> report.md
-          cml-send-comment report.md
+          # cml-send-comment report.md
 
