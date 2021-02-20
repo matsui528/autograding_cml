@@ -12,6 +12,9 @@ jobs:
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          python --version
+          gcc main.c
+          ./a.out 
           python eval.py >> report.md
           cml-send-comment report.md
 
