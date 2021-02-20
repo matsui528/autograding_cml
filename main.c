@@ -3,7 +3,7 @@
 
 int multiply (int a, int b) {
     // この関数内部を編集してください
-    return a + b;
+    return a * b;
 }
 
 int main(int argc, char *argv[]) {
