@@ -8,6 +8,10 @@ jobs:
 #    container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
       - name: autograde_task
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
